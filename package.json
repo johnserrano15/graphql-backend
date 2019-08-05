@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e js,graphql index"
+    "dev": "nodemon -e js,graphql index",
+    "lint": "standard",
+    "lint-fix": "standard --fix"
   },
   "keywords": [],
   "author": "John Serrano <jandreys15@gmail.com> (https://twitter.com/Jandrey15)",
@@ -15,6 +17,7 @@
     "graphql": "14.4.2"
   },
   "devDependencies": {
-    "nodemon": "1.19.1"
+    "nodemon": "1.19.1",
+    "standard": "^13.1.0"
   }
 }

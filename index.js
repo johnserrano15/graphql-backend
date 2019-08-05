@@ -1,0 +1,26 @@
+'use strict'
+
+const { graphql, buildSchema } = require('graphql')
+
+// Definiendo el esquema
+const schema = buildSchema(`
+  type Query {
+    hello: String
+    saludo: String
+  }
+`)
+
+// Configurar los resolvers
+const resolvers = {
+  hello: () => {
+    return 'Hello world'
+  },
+  saludo: () => {
+    return 'Hola a todos'
+  }
+}
+
+// Ejecutar el query hello
+graphql(schema, '{ hello, saludo }', resolvers).then((data) => {
+  console.log(data)
+})

@@ -40,3 +40,17 @@ mutation {
   }
 }
 ```
+
+* Mutation Edit
+
+```
+mutation {
+  editCourse(_id: "5d499e87f05e5225c8c93db0", input: {
+    title: "Curso editado"
+    teacher: "John Serrano"
+  }){
+    title
+    teacher
+  }
+}
+```

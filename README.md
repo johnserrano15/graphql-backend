@@ -74,3 +74,21 @@ mutation {
   }
 }
 ```
+
+* Resolver types
+
+```
+{
+  getCourses {
+    _id
+    title
+    description
+    teacher
+    people {
+      _id
+      name
+      email
+    }
+  }
+}
+```

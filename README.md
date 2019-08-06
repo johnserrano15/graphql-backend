@@ -62,3 +62,15 @@ mutation {
   deleteCourse(_id: "5d49a689956e731fb00367f1")
 }
 ```
+
+* Mutation Nested Types
+
+```
+mutation {
+  addPeople(courseID: "5d49935b7389141d5c7c7172", 
+    personID: "5d49a82087948f2aac0a3b0a"){
+    _id
+    title
+  }
+}
+```

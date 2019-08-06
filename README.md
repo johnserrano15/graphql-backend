@@ -2,7 +2,7 @@
 
 ## Get all courses
 
-```
+```graphql
 {
   getCourses {
     title
@@ -13,7 +13,7 @@
 
 ## Get course ID
 
-```
+```graphql
 {
   getCourse(id: "oqeded2") {
     _id
@@ -25,7 +25,7 @@
 
 ## Mutation
 
-```
+```graphql
 mutation {
   createCourse(input: {
    	title: "Nuevo curso"
@@ -41,7 +41,7 @@ mutation {
 
 ## Mutation Edit
 
-```
+```graphql
 mutation {
   editCourse(_id: "5d499e87f05e5225c8c93db0", input: {
     title: "Curso editado"
@@ -55,7 +55,7 @@ mutation {
 
 ## Mutation Delete
 
-```
+```graphql
 mutation {
   deleteCourse(_id: "5d49a689956e731fb00367f1")
 }
@@ -63,7 +63,7 @@ mutation {
 
 ## Mutation Nested Types
 
-```
+```graphql
 mutation {
   addPeople(courseID: "5d49935b7389141d5c7c7172", 
     personID: "5d49a82087948f2aac0a3b0a"){
@@ -75,7 +75,7 @@ mutation {
 
 ## Resolver types
 
-```
+```graphql
 {
   getCourses {
     _id
@@ -93,7 +93,7 @@ mutation {
 
 ## Alias
 
-```
+```graphql
 {
   AllCourses: getCourses {
     _id
@@ -126,7 +126,7 @@ mutation {
 
 ## Fragment
 
-```
+```graphql
 {
   AllCourses: getCourses {
     ...CourseFields
@@ -151,5 +151,47 @@ fragment CourseFields on Course {
     _id
     name
   }
+}
+```
+
+## Variables
+
+```graphql
+query GetCourse2 ($course: ID!) {
+  getCourse(id: $course){
+   _id
+    title
+    people{
+      _id
+      name
+    }
+  }
+}
+```
+
+* Requiere un objeto JSON como:
+
+```json
+{
+  "course": "5cb4b8ce75f954a0585f7be3"
+}
+```
+---
+
+```graphql
+mutation AddPersonToCourse ($course: ID!, $person: ID!){
+  addPeople(courseID: $course, personID: $person) {
+    _id
+    title
+  }
+}
+```
+
+* Requiere un objeto JSON como:
+
+```json
+{
+  "course": "5d499e87f05e5225c8c93db0",
+  "person": "5d49a82087948f2aac0a3b0a"
 }
 ```

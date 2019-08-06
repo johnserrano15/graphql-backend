@@ -1,8 +1,6 @@
-# Example GraphQL
+# Queries ejecutadas en el curso en GraphiQL
 
-## Querys
-
-* Get all courses
+## Get all courses
 
 ```
 {
@@ -13,7 +11,7 @@
 }
 ```
 
-* Get course ID
+## Get course ID
 
 ```
 {
@@ -25,7 +23,7 @@
 }
 ```
 
-* Mutation
+## Mutation
 
 ```
 mutation {
@@ -41,7 +39,7 @@ mutation {
 }
 ```
 
-* Mutation Edit
+## Mutation Edit
 
 ```
 mutation {
@@ -55,7 +53,7 @@ mutation {
 }
 ```
 
-* Mutation Delete
+## Mutation Delete
 
 ```
 mutation {
@@ -63,7 +61,7 @@ mutation {
 }
 ```
 
-* Mutation Nested Types
+## Mutation Nested Types
 
 ```
 mutation {
@@ -75,7 +73,7 @@ mutation {
 }
 ```
 
-* Resolver types
+## Resolver types
 
 ```
 {
@@ -89,6 +87,69 @@ mutation {
       name
       email
     }
+  }
+}
+```
+
+## Alias
+
+```
+{
+  AllCourses: getCourses {
+    _id
+    title
+    description
+  }
+  
+  Course1: getCourse(id: "5d4993c93b833e1d5c0929d0"){
+    title
+    description
+  }
+  
+  Course2: getCourse(id: "5d499e87f05e5225c8c93db0"){
+    title
+    description
+    topic
+  }
+  
+  
+  Course3: getCourse(id: "5d499e87f05e5225c8c93db0"){
+    title
+    description
+    people {
+      name
+      email
+    }
+  }
+}
+```
+
+## Fragment
+
+```
+{
+  AllCourses: getCourses {
+    ...CourseFields
+  }
+  
+  Course1: getCourse(id: "5d4993c93b833e1d5c0929d0"){
+    ...CourseFields
+    teacher
+  }
+  
+  Course2: getCourse(id: "5d499e87f05e5225c8c93db0"){
+    ...CourseFields
+    topic
+  }
+}
+
+fragment CourseFields on Course {
+	_id
+  title
+  description
+  people {
+    _id
+    name
   }
 }
 ```

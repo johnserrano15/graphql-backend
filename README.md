@@ -195,3 +195,27 @@ mutation AddPersonToCourse ($course: ID!, $person: ID!){
   "person": "5d49a82087948f2aac0a3b0a"
 }
 ```
+
+## Enums
+```graphql
+mutation CreateNewCourse($createInput: CourseInput!) {
+  createCourse(input: $createInput) {
+    title
+    description
+  }
+}
+```
+
+* Requiere un objeto JSON como:
+
+```json
+{
+  "createInput": {
+    "title": "Course new example",
+    "teacher": "My teacher",
+    "description": "my description",
+    "topic": "marketing",
+    "level": "principiante"
+  }
+}
+```

@@ -16,7 +16,7 @@ const typeDefs = readFileSync(
   join(__dirname, 'lib', 'schema.gql'),
   'utf-8'
 )
-const schema = makeExecutableSchema({ typeDefs, resolvers})
+const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 app.use('/api', gqlMiddleware({
   schema: schema,

@@ -54,3 +54,11 @@ mutation {
   }
 }
 ```
+
+* Mutation Delete
+
+```
+mutation {
+  deleteCourse(_id: "5d49a689956e731fb00367f1")
+}
+```

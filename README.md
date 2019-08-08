@@ -304,4 +304,4 @@ query getPeopleDate($monitor: Boolean!, $avatar: Boolean!) {
 }
 ```
 
-> *Nota se crearon los indexes -> `db.courses.createIndex({ "$**": "text" })`*
+> *Nota se crearon los indexes -> `db.courses.createIndex({ "$**": "text" }); db.students.createIndex({ "$**": "text" });`*

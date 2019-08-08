@@ -219,3 +219,26 @@ mutation CreateNewCourse($createInput: CourseInput!) {
   }
 }
 ```
+
+## Interfaces - Tipo Monitor
+``` graphql
+mutation CreateNewMonitor($createInput: PersonInput!) {
+  createPerson(input: $createInput){
+    _id
+    name
+  }
+}
+```
+
+```graphql
+{
+  getPeople {
+    _id
+    name
+    email
+    ... on Monitor {
+      phone
+    }
+  }
+}
+```

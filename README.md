@@ -279,3 +279,29 @@ query getPeopleDate($monitor: Boolean!, $avatar: Boolean!) {
   "avatar": false
 }
 ```
+
+## Unions
+``` graphql
+{
+  searchItems(keyword: "title") {
+    __typename
+    ... on Course {
+      _id
+      title
+      description
+    }
+    ... on Monitor {
+      _id
+      name
+      email
+    }
+    ... on Student {
+      _id
+      name
+      email
+    }
+  }
+}
+```
+
+> *Nota se crearon los indexes -> `db.courses.createIndex({ "$**": "text" })`*

@@ -242,3 +242,40 @@ mutation CreateNewMonitor($createInput: PersonInput!) {
   }
 }
 ```
+
+## Directivas @include and @skip
+``` graphql
+query getPeopleDate($monitor: Boolean!) {
+  getPeople {
+    _id
+    name
+    email
+    ... on Monitor @include(if: $monitor){
+      phone
+    }
+  }
+}
+
+query getPeopleDate($monitor: Boolean!, $avatar: Boolean!) {
+  getPeople {
+    _id
+    name
+    ... on Monitor @include(if: $monitor){
+      phone
+    }
+    ... on Student @skip(if: $avatar){
+      avatar
+      email
+    }
+  }
+}
+```
+
+* Requiere un objeto JSON como:
+
+```json
+{
+  "monitor": false,
+  "avatar": false
+}
+```
